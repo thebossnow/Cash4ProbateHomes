@@ -1,0 +1,7 @@
+title: Cash4ProbateHomes
+description: Cash 4 Probate Homes
+baseurl: ""  # Leave empty for root domain
+url: "https://cash4probatehomes.com"
+theme: minima  # Free default theme; or remove for custom
+plugins:
+  - jekyll-feed  # Optional: For RSS if you add a blog
