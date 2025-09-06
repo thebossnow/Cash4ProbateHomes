@@ -17,7 +17,8 @@
         section { padding: 40px 20px; max-width: 800px; margin: 0 auto; }
         #apply h2 { margin-bottom: 20px; }
         form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto; }
-        input, button { padding: 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
+        label { font-size: 1em; }
+        input, select, button { padding: 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
         button { background: #004aad; color: white; border: none; cursor: pointer; transition: background 0.3s; }
         button:hover { background: #003a8c; }
         .how-it-works ol { padding-left: 20px; }
@@ -42,23 +43,38 @@
     <section id="apply">
         <h2>5-Minute Application – No Risk, No Repayment</h2>
         <p>Fill out our secure form to get your inheritance cash in as little as 24 hours. No credit check, no hidden fees.</p>
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-            <input type="number" name="inheritance" placeholder="Estimated Inheritance Amount ($)" min="12000" required>
-            <select name="state" required>
-                <option value="" disabled selected>State of Probate Case</option>
-                <option value="CA">California</option>
-                <option value="FL">Florida</option>
-                <option value="NY">New York</option>
-                <option value="TX">Texas</option>
-            </select>
+        <form action="https://formspree.io/f/mzzayped" method="POST">
+            <label>
+                Your name:
+                <input type="text" name="name" placeholder="Full Name" required>
+            </label>
+            <label>
+                Your email:
+                <input type="email" name="email" placeholder="Email Address" required>
+            </label>
+            <label>
+                Your phone:
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+            </label>
+            <label>
+                Inheritance amount:
+                <input type="number" name="inheritance" placeholder="Estimated Inheritance Amount ($)" min="12000" required>
+            </label>
+            <label>
+                State of probate case:
+                <select name="state" required>
+                    <option value="" disabled selected>Select State</option>
+                    <option value="CA">California</option>
+                    <option value="FL">Florida</option>
+                    <option value="NY">New York</option>
+                    <option value="TX">Texas</option>
+                </select>
+            </label>
             <label>
                 <input type="checkbox" name="consent" required>
                 I agree to be contacted by Cash4Probate via phone, email, or text and accept the <a href="/privacy.html">Privacy Policy</a>. Opt out anytime by emailing <a href="mailto:info@cash4probate.com">info@cash4probate.com</a>.
             </label>
-            <button type="submit">Submit Application</button>
+            <button type="submit">Send</button>
         </form>
     </section>
 
