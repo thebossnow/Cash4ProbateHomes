@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004aad"/>
+      <stop offset="100%" stop-color="#003380"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white">Cash4ProbateHomes</text>
+  <text x="600" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#ff6200" font-weight="bold">Get Your Inheritance Cash in 24 Hours</text>
+  <text x="600" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.8)">No Credit Checks &bull; No Repayment &bull; No Hidden Fees</text>
+  <rect x="450" y="440" width="300" height="60" rx="30" fill="#ff6200"/>
+  <text x="600" y="478" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">Apply Now</text>
+</svg>
