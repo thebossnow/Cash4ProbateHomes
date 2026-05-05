@@ -1,4 +1,4 @@
 # robots.txt
 User-agent: *
 Allow: /
-Sitemap: https://cash4probate.com/sitemap.xml
+Sitemap: https://cash4probatehomes.com/sitemap.xml
