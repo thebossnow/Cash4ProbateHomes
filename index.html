@@ -89,6 +89,7 @@
         footer a:hover { text-decoration: underline; }
         footer .footer-links { margin-bottom: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         footer .footer-links a { color: #ccc; }
+        .disclaimer-text { font-size: 0.8em; color: #999; line-height: 1.5; max-width: 800px; margin: 10px auto 15px; padding: 0 20px; }
         @media (max-width: 600px) {
             header.hero h1 { font-size: 1.8em; }
             header.hero p { font-size: 1em; }
@@ -122,7 +123,8 @@
     <div class="container">
         <h2>Free 5-Minute Application</h2>
         <p>Fill out our secure form to get your inheritance cash in as little as 24 hours after approval. No credit check, no risk, no obligation.</p>
-        <form action="https://formspree.io/f/mzzayped" method="POST">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -323,8 +325,8 @@
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms</a>
     </div>
+    <p class="disclaimer-text">Cash4ProbateHomes is not a lender. Cash4ProbateHomes provides immediate cash advances to heirs who are waiting for their inheritance in exchange for a fixed assignment of the heir's inheritance. These advances are not loans, with no interest rates, no collateral and no recourse if the heir's inheritance is insufficient to repay the advance. Cash4ProbateHomes bears all the risks inherent with the probate process, including, but not limited to, the value of the heir's inheritance due to devaluation of estate assets, creditor claims and other potential legal challenges to the probate.</p>
     <p>&copy; 2025 Cash4ProbateHomes. All rights reserved.</p>
-    <p style="margin-top:8px;font-size:0.85em;">This site is for informational purposes only and does not constitute financial or legal advice.</p>
     <p style="margin-top:5px;font-size:0.85em;">Email: <a href="mailto:info@cash4probatehomes.com">info@cash4probatehomes.com</a></p>
 </footer>
 
