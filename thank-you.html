@@ -11,14 +11,6 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <!-- CONVERSION TRACKING GOES HERE.
-         When Google Analytics / Google Ads / Meta Pixel are added site-wide,
-         fire the "Lead" conversion event on THIS page (it only loads after a
-         successful form submit). Examples:
-           gtag('event', 'conversion', { 'send_to': 'AW-XXXX/YYYY' });
-           fbq('track', 'Lead');
-    -->
-
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: Arial, sans-serif; line-height: 1.7; color: #333; }
@@ -47,6 +39,34 @@
             nav { flex-direction: column; text-align: center; gap: 10px; }
         }
     </style>
+    <!-- ===== Analytics & Ad Tracking =====
+         GA4 is LIVE (Measurement ID G-XKQ4MLXPTW).
+         Meta Pixel is staged but INACTIVE — set a Pixel ID in the block below to enable.
+    -->
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XKQ4MLXPTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XKQ4MLXPTW');
+    </script>
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      // Meta Pixel not configured yet. To activate: replace YOUR_PIXEL_ID and uncomment.
+      // fbq('init', 'YOUR_PIXEL_ID');
+      // fbq('track', 'PageView');
+    </script>
+    <!-- Meta Pixel <noscript> omitted until a real Pixel ID is set. -->
+    <!-- ===== End Analytics ===== -->
 </head>
 <body>
 
@@ -96,6 +116,22 @@
     <p style="margin-top:5px;font-size:0.95em;">Call: <a href="tel:+14422149444" style="color:#ff6200;font-weight:bold;">(442) 214-9444</a></p>
     <p style="margin-top:5px;font-size:0.85em;">Email: <a href="mailto:info@cash4probatehomes.com">info@cash4probatehomes.com</a></p>
 </footer>
+
+<!-- Lead conversion tracking — fires only on this post-submit page -->
+<script>
+  // GA4: mark this as a lead conversion
+  if (typeof gtag === 'function') {
+    gtag('event', 'generate_lead', {
+      currency: 'USD',
+      value: 1,
+      form: 'inheritance_funding_application'
+    });
+  }
+  // Meta Pixel: standard Lead event
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead');
+  }
+</script>
 
 </body>
 </html>
