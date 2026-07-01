@@ -125,6 +125,9 @@
         <p>Fill out our secure form to get your inheritance cash in as little as 24 hours after approval. No credit check, no risk, no obligation.</p>
         <form action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="612356c5-8aa1-4d29-8c7e-46c919c6aafb">
+            <input type="hidden" name="subject" value="New Inheritance Funding Application — Cash4ProbateHomes">
+            <input type="hidden" name="from_name" value="Cash4ProbateHomes Website">
+            <input type="hidden" name="redirect" value="https://cash4probatehomes.com/thank-you.html">
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -244,6 +247,7 @@
                 <input type="checkbox" id="consent" name="consent" required>
                 <label for="consent">I agree to be contacted by Cash4Probate via phone, email, or text and accept the <a href="/privacy.html">Privacy Policy</a>.</label>
             </div>
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off">
             <button type="submit">Get My Cash Now</button>
         </form>
     </div>
