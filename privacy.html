@@ -55,6 +55,35 @@
             nav { flex-direction: column; text-align: center; gap: 10px; }
         }
     </style>
+    <!-- ===== Analytics & Ad Tracking =====
+         Replace the two placeholder IDs below with your real ones:
+           G-XXXXXXXXXX  -> your GA4 Measurement ID
+           METAPIXELID   -> your Meta (Facebook) Pixel ID
+    -->
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'METAPIXELID');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=METAPIXELID&ev=PageView&noscript=1"/></noscript>
+    <!-- ===== End Analytics ===== -->
 </head>
 <body>
 
@@ -93,8 +122,8 @@
     <h2>Your Rights</h2>
     <p>You have the right to access, correct, or delete your personal information held by us. You may opt out of communications at any time by contacting us. To exercise these rights, please email us at <a href="mailto:info@cash4probatehomes.com">info@cash4probatehomes.com</a>.</p>
 
-    <h2>Cookies</h2>
-    <p>Our website may use cookies and similar tracking technologies to improve your browsing experience and analyze site traffic. You can control cookie preferences through your browser settings.</p>
+    <h2>Cookies &amp; Analytics</h2>
+    <p>Our website uses cookies and similar tracking technologies to improve your browsing experience and analyze site traffic. We use <strong>Google Analytics</strong> to understand how visitors use our site and the <strong>Meta (Facebook) Pixel</strong> to measure the effectiveness of our advertising and show relevant ads. These services may collect information such as your IP address, device and browser type, and pages visited, and may set their own cookies. You can control cookie preferences through your browser settings, opt out of Google Analytics via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>, and manage ad preferences in your Facebook settings.</p>
 
     <h2>Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date. We encourage you to review this policy periodically.</p>
