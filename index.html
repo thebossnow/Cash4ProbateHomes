@@ -68,7 +68,8 @@
         #apply { background: #f0f4f8; }
         form { display: flex; flex-direction: column; gap: 16px; max-width: 540px; margin: 25px auto 0; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
         form label { font-size: 0.95em; font-weight: 600; }
-        form input, form select, form button { padding: 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
+        form input, form select, form textarea, form button { padding: 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
+        form textarea { font-family: inherit; resize: vertical; min-height: 80px; }
         form button { background: #004aad; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 1.1em; transition: background 0.3s; }
         form button:hover { background: #003380; }
         .form-group { display: flex; flex-direction: column; gap: 5px; }
@@ -152,8 +153,8 @@
 
 <section id="apply">
     <div class="container">
-        <h2>Free 5-Minute Application</h2>
-        <p>Fill out our secure form to get your inheritance cash in as little as 24 hours after approval. No credit check, no risk, no obligation.</p>
+        <h2>Free 60-Second Application</h2>
+        <p>Just four quick details and you are done. We follow up personally with everything else. Get your inheritance cash in as little as 24 hours after approval. No credit check, no risk, no obligation.</p>
         <form action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="612356c5-8aa1-4d29-8c7e-46c919c6aafb">
             <input type="hidden" name="subject" value="New Inheritance Funding Application â Cash4ProbateHomes">
@@ -164,115 +165,20 @@
                 <input type="text" id="name" name="name" placeholder="John Doe" required>
             </div>
             <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            </div>
-            <div class="form-group">
                 <label for="phone">Phone Number</label>
                 <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
                 <label for="property_address">Property Address</label>
                 <input type="text" id="property_address" name="property_address" placeholder="123 Main St, City, State ZIP" required>
             </div>
             <div class="form-group">
-                <label for="inheritance">Estimated Inheritance Amount ($)</label>
-                <input type="number" id="inheritance" name="inheritance" placeholder="50000" min="10000" required>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="case_status">Probate Case Status</label>
-                    <select id="case_status" name="case_status" required>
-                        <option value="" disabled selected>Select status</option>
-                        <option value="not_started">Haven't started probate yet</option>
-                        <option value="filed">Case has been filed</option>
-                        <option value="in_progress">Probate is in progress</option>
-                        <option value="closed">Probate has closed</option>
-                        <option value="unsure">Not sure</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="property_status">Property Status</label>
-                    <select id="property_status" name="property_status" required>
-                        <option value="" disabled selected>Select status</option>
-                        <option value="vacant">Vacant / unoccupied</option>
-                        <option value="occupied">Occupied by heir or tenant</option>
-                        <option value="needs_repairs">Needs repairs / fixer-upper</option>
-                        <option value="good_condition">Good condition, move-in ready</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="heirs">Number of Heirs / Beneficiaries</label>
-                <input type="number" id="heirs" name="heirs" placeholder="1" min="1" required>
-            </div>
-            <div class="form-group">
-                <label for="state">State Where Probate Case Is Located</label>
-                <select id="state" name="state" required>
-                    <option value="" disabled selected>Select State</option>
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="referred">How Did You Hear About Us?</label>
-                <select id="referred" name="referred">
-                    <option value="" disabled selected>Select (optional)</option>
-                    <option value="google">Google Search</option>
-                    <option value="facebook">Facebook</option>
-                    <option value="instagram">Instagram</option>
-                    <option value="friend">Friend or Family</option>
-                    <option value="attorney">Attorney / Probate Lawyer</option>
-                    <option value="other">Other</option>
-                </select>
+                <label for="comment">Anything you&#39;d like us to know? <span style="font-weight:400;color:#888;">(optional)</span></label>
+                <textarea id="comment" name="comment" placeholder="Briefly tell us about the property or your situation, or leave blank and we&#39;ll cover it on the call."></textarea>
             </div>
             <div class="checkbox-group form-group">
                 <input type="checkbox" id="consent" name="consent" required>
