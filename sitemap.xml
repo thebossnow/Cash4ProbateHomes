@@ -1,34 +1,53 @@
-<!-- sitemap.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://cash4probatehomes.com/</loc>
-        <lastmod>2026-05-04</lastmod>
+        <lastmod>2026-07-03</lastmod>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://cash4probatehomes.com/how-it-works.html</loc>
-        <lastmod>2026-05-04</lastmod>
+        <lastmod>2026-07-03</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://cash4probatehomes.com/blog/</loc>
+        <lastmod>2026-07-03</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://cash4probatehomes.com/blog/what-is-an-inheritance-advance.html</loc>
+        <lastmod>2026-07-03</lastmod>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://cash4probatehomes.com/blog/inheritance-advance-vs-probate-loan.html</loc>
+        <lastmod>2026-07-03</lastmod>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://cash4probatehomes.com/blog/how-to-get-money-before-probate-closes.html</loc>
+        <lastmod>2026-07-03</lastmod>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://cash4probatehomes.com/faq.html</loc>
-        <lastmod>2026-05-04</lastmod>
+        <lastmod>2026-07-03</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://cash4probatehomes.com/about.html</loc>
-        <lastmod>2026-05-04</lastmod>
-        <priority>0.7</priority>
+        <lastmod>2026-07-03</lastmod>
+        <priority>0.6</priority>
     </url>
     <url>
         <loc>https://cash4probatehomes.com/privacy.html</loc>
-        <lastmod>2026-05-04</lastmod>
+        <lastmod>2026-07-03</lastmod>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://cash4probatehomes.com/terms.html</loc>
-        <lastmod>2026-05-04</lastmod>
+        <lastmod>2026-07-03</lastmod>
         <priority>0.3</priority>
     </url>
 </urlset>
