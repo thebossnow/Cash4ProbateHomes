@@ -72,6 +72,7 @@
         form textarea { font-family: inherit; resize: vertical; min-height: 80px; }
         form button { background: #004aad; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 1.1em; transition: background 0.3s; }
         form button:hover { background: #003380; }
+        form button:disabled { background: #7a93b5; cursor: not-allowed; }
         .form-group { display: flex; flex-direction: column; gap: 5px; }
         .form-row { display: flex; gap: 15px; }
         .form-row .form-group { flex: 1; }
@@ -157,26 +158,26 @@
     <div class="container">
         <h2>Free 60-Second Application</h2>
         <p>Just four quick details and you are done. We follow up personally with everything else. Get your inheritance cash in as little as 24 hours after approval. No credit check, no risk, no obligation.</p>
-        <form action="https://api.web3forms.com/submit" method="POST">
+        <form id="lead-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
             <input type="hidden" name="access_key" value="612356c5-8aa1-4d29-8c7e-46c919c6aafb">
             <input type="hidden" name="subject" value="New Inheritance Funding Application — Cash4ProbateHomes">
             <input type="hidden" name="from_name" value="Cash4ProbateHomes Website">
             <input type="hidden" name="redirect" value="https://cash4probatehomes.com/thank-you.html">
             <div class="form-group">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                <input type="text" id="name" name="name" placeholder="John Doe" required autocomplete="name">
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required autocomplete="tel" inputmode="tel" pattern="^[\d\s()\-+.]{10,20}$" title="Enter a valid 10-digit US phone number">
             </div>
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
             </div>
             <div class="form-group">
                 <label for="property_address">Property Address</label>
-                <input type="text" id="property_address" name="property_address" placeholder="123 Main St, City, State ZIP" required>
+                <input type="text" id="property_address" name="property_address" placeholder="123 Main St, City, State ZIP" required autocomplete="street-address">
             </div>
             <div class="form-group">
                 <label for="comment">Anything you&#39;d like us to know? <span style="font-weight:400;color:#888;">(optional)</span></label>
@@ -184,11 +185,89 @@
             </div>
             <div class="checkbox-group form-group">
                 <input type="checkbox" id="consent" name="consent" required>
-                <label for="consent">I agree to be contacted by Cash4Probate via phone, email, or text and accept the <a href="/privacy.html">Privacy Policy</a>.</label>
+                <label for="consent">I agree to be contacted by Cash4ProbateHomes via phone, email, or text and accept the <a href="/privacy.html">Privacy Policy</a>.</label>
             </div>
             <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off">
-            <button type="submit">Get My Cash Now</button>
+            <p id="form-error" role="alert" aria-live="polite" style="display:none;color:#b00020;font-weight:600;margin:0;"></p>
+            <button type="submit" id="lead-submit">Get My Cash Now</button>
         </form>
+        <script>
+          (function () {
+            var form = document.getElementById("lead-form");
+            if (!form) return;
+            var btn = document.getElementById("lead-submit");
+            var err = document.getElementById("form-error");
+            var thankYou = "https://cash4probatehomes.com/thank-you.html";
+
+            function digits(v) { return String(v || "").replace(/\D/g, ""); }
+            function showError(msg) {
+              if (!err) return;
+              err.textContent = msg;
+              err.style.display = "block";
+            }
+            function clearError() {
+              if (!err) return;
+              err.textContent = "";
+              err.style.display = "none";
+            }
+
+            form.addEventListener("submit", function (e) {
+              e.preventDefault();
+              clearError();
+              if (form.botcheck && form.botcheck.checked) return;
+
+              var phoneDigits = digits(form.phone && form.phone.value);
+              if (phoneDigits.length === 11 && phoneDigits.charAt(0) === "1") {
+                phoneDigits = phoneDigits.slice(1);
+              }
+              if (phoneDigits.length !== 10) {
+                showError("Please enter a valid 10-digit US phone number.");
+                if (form.phone) form.phone.focus();
+                return;
+              }
+              if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+              }
+
+              if (btn) {
+                btn.disabled = true;
+                btn.textContent = "Sending…";
+              }
+
+              var fd = new FormData(form);
+              // Single destination only — Web3Forms (no parallel webhook POST)
+              fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: fd,
+                headers: { "Accept": "application/json" }
+              }).then(function (res) {
+                return res.json().then(function (data) {
+                  return { ok: res.ok, data: data };
+                }).catch(function () {
+                  return { ok: res.ok, data: null };
+                });
+              }).then(function (result) {
+                if (result.ok && result.data && result.data.success) {
+                  window.location.href = thankYou;
+                  return;
+                }
+                var msg = (result.data && (result.data.message || result.data.error)) || "Something went wrong. Please call (442) 214-9444 or try again.";
+                showError(msg);
+                if (btn) {
+                  btn.disabled = false;
+                  btn.textContent = "Get My Cash Now";
+                }
+              }).catch(function () {
+                showError("Network error. Please call (442) 214-9444 or try again.");
+                if (btn) {
+                  btn.disabled = false;
+                  btn.textContent = "Get My Cash Now";
+                }
+              });
+            });
+          })();
+        </script>
     </div>
 </section>
 
