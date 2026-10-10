@@ -158,11 +158,7 @@
     <div class="container">
         <h2>Free 60-Second Application</h2>
         <p>Just four quick details and you are done. We follow up personally with everything else. Get your inheritance cash in as little as 24 hours after approval. No credit check, no risk, no obligation.</p>
-        <form id="lead-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-            <input type="hidden" name="access_key" value="612356c5-8aa1-4d29-8c7e-46c919c6aafb">
-            <input type="hidden" name="subject" value="New Inheritance Funding Application — Cash4ProbateHomes">
-            <input type="hidden" name="from_name" value="Cash4ProbateHomes Website">
-            <input type="hidden" name="redirect" value="https://cash4probatehomes.com/thank-you.html">
+        <form id="lead-form" action="https://n8n.westshoresresidential.online/webhook/c4ph-lead-e0f5764f927fc969881a" method="POST" novalidate>
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" placeholder="John Doe" required autocomplete="name">
@@ -197,7 +193,6 @@
             if (!form) return;
             var btn = document.getElementById("lead-submit");
             var err = document.getElementById("form-error");
-            var thankYou = "https://cash4probatehomes.com/thank-you.html";
 
             function digits(v) { return String(v || "").replace(/\D/g, ""); }
             function showError(msg) {
@@ -235,36 +230,8 @@
                 btn.textContent = "Sending…";
               }
 
-              var fd = new FormData(form);
-              // Single destination only — Web3Forms (no parallel webhook POST)
-              fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                body: fd,
-                headers: { "Accept": "application/json" }
-              }).then(function (res) {
-                return res.json().then(function (data) {
-                  return { ok: res.ok, data: data };
-                }).catch(function () {
-                  return { ok: res.ok, data: null };
-                });
-              }).then(function (result) {
-                if (result.ok && result.data && result.data.success) {
-                  window.location.href = thankYou;
-                  return;
-                }
-                var msg = (result.data && (result.data.message || result.data.error)) || "Something went wrong. Please call (442) 214-9444 or try again.";
-                showError(msg);
-                if (btn) {
-                  btn.disabled = false;
-                  btn.textContent = "Get My Cash Now";
-                }
-              }).catch(function () {
-                showError("Network error. Please call (442) 214-9444 or try again.");
-                if (btn) {
-                  btn.disabled = false;
-                  btn.textContent = "Get My Cash Now";
-                }
-              });
+              // Single destination only: native POST to the n8n lead webhook (n8n emails Brittan and 303-redirects to thank-you.html)
+              form.submit();
             });
           })();
         </script>
