@@ -248,6 +248,17 @@
               // Single destination only: native POST to the n8n lead webhook (n8n emails Brittan and 303-redirects to thank-you.html)
               form.submit();
             });
+
+            window.addEventListener("pageshow", function (e) {
+              if (btn) {
+                btn.disabled = false;
+                btn.textContent = "Get My Cash Now";
+              }
+              clearError();
+              if (e.persisted && window.turnstile) {
+                try { window.turnstile.reset(); } catch (err) {}
+              }
+            });
           })();
         </script>
     </div>
