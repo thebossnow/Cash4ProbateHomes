@@ -31,6 +31,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -86,6 +87,7 @@
         form button { background: #004aad; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 1.1em; transition: background 0.3s; }
         form button:hover { background: #003380; }
         form button:disabled { background: #7a93b5; cursor: not-allowed; }
+        .cf-turnstile { margin: 0; }
         .form-group { display: flex; flex-direction: column; gap: 5px; }
         .form-row { display: flex; gap: 15px; }
         .form-row .form-group { flex: 1; }
@@ -188,6 +190,7 @@
                 <input type="checkbox" id="consent" name="consent" required>
                 <label for="consent">I agree to be contacted by Cash4ProbateHomes via phone, email, or text and accept the <a href="/privacy.html">Privacy Policy</a>.</label>
             </div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAGAvQCKSquoBalma" data-theme="light"></div>
             <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off">
             <p id="form-error" role="alert" aria-live="polite" style="display:none;color:#b00020;font-weight:600;margin:0;"></p>
             <button type="submit" id="lead-submit">Get My Cash Now</button>
@@ -227,6 +230,13 @@
               }
               if (!form.checkValidity()) {
                 form.reportValidity();
+                return;
+              }
+
+              var turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+              var turnstileToken = turnstileInput && String(turnstileInput.value || "").trim();
+              if (!turnstileToken) {
+                showError("Please complete the verification check.");
                 return;
               }
 
